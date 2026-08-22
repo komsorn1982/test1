@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แบบทดสอบวิทยาการคำนวณ ม.4</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#64748b;
+      --primary:#4f46e5;
+      --primary2:#7c3aed;
+      --line:#e5e7eb;
+      --good:#15803d;
+      --bad:#b91c1c;
+      --shadow:0 16px 40px rgba(15,23,42,.08);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;
+      background:linear-gradient(135deg,#eef2ff 0%,#f8fafc 50%,#f0fdf4 100%);
+      color:var(--text);
+      min-height:100vh;
+    }
+    .hero{
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      color:white;
+      padding:42px 20px 76px;
+      text-align:center;
+    }
+    .hero h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px)}
+    .hero p{margin:0;opacity:.9;font-size:17px}
+    .container{
+      width:min(980px,92%);
+      margin:-42px auto 60px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+      margin-bottom:22px;
+      border:1px solid rgba(255,255,255,.6);
+    }
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:20px;
+      font-weight:700;
+      margin:0 0 18px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+    .field label{
+      display:block;
+      font-weight:600;
+      margin-bottom:7px;
+      color:#334155;
+    }
+    .field input{
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      font-size:16px;
+      outline:none;
+      transition:.2s;
+      background:#fff;
+    }
+    .field input:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 4px rgba(79,70,229,.12);
+    }
+    .progress-wrap{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      margin-bottom:12px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .progress{
+      height:10px;
+      background:#e2e8f0;
+      border-radius:999px;
+      overflow:hidden;
+      margin-bottom:20px;
+    }
+    .progress-bar{
+      width:0%;
+      height:100%;
+      background:linear-gradient(90deg,var(--primary),var(--primary2));
+      transition:.25s;
+    }
+    .question{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+      margin:18px 0;
+      background:#fff;
+    }
+    .question h3{
+      margin:0 0 14px;
+      font-size:18px;
+      line-height:1.5;
+    }
+    .option{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:12px 14px;
+      margin:9px 0;
+      border:1px solid #e2e8f0;
+      border-radius:12px;
+      cursor:pointer;
+      transition:.18s;
+      background:#fafafa;
+    }
+    .option:hover{
+      border-color:#a5b4fc;
+      background:#f5f3ff;
+      transform:translateY(-1px);
+    }
+    .option input{margin-top:4px;accent-color:var(--primary)}
+    .actions{
+      display:flex;
+      justify-content:center;
+      margin-top:26px;
+    }
+    button{
+      border:0;
+      padding:14px 28px;
+      border-radius:14px;
+      font-size:17px;
+      font-weight:700;
+      cursor:pointer;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      color:#fff;
+      box-shadow:0 10px 24px rgba(79,70,229,.22);
+    }
+    button:hover{filter:brightness(1.05)}
+    button:disabled{opacity:.55;cursor:not-allowed}
+    #result{
+      display:none;
+      text-align:center;
+    }
+    .score{
+      font-size:54px;
+      font-weight:800;
+      color:var(--primary);
+      margin:4px 0;
+    }
+    .result-note{color:var(--muted);margin-bottom:18px}
+    .answer-review{
+      text-align:left;
+      margin-top:20px;
+    }
+    .review-item{
+      border-left:5px solid #cbd5e1;
+      padding:14px 16px;
+      margin:12px 0;
+      background:#f8fafc;
+      border-radius:10px;
+    }
+    .review-item.correct{border-left-color:var(--good)}
+    .review-item.wrong{border-left-color:var(--bad)}
+    .review-item small{color:var(--muted);line-height:1.6}
+    .status{
+      margin-top:16px;
+      padding:12px 14px;
+      border-radius:12px;
+      font-size:14px;
+      display:none;
+    }
+    .status.ok{display:block;background:#dcfce7;color:#166534}
+    .status.warn{display:block;background:#fef3c7;color:#92400e}
+    footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      padding:10px 0 28px;
+    }
+    @media (max-width:700px){
+      .grid{grid-template-columns:1fr}
+      .card{padding:20px}
+      .hero{padding-top:32px}
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>แบบทดสอบวิทยาการคำนวณ ม.4</h1>
+    <p>เรื่อง แนวคิดเชิงคำนวณ อัลกอริทึม และการแก้ปัญหา • 10 ข้อ</p>
+  </section>
+
+  <main class="container">
+    <section class="card">
+      <h2 class="section-title">👤 ข้อมูลผู้เข้าสอบ</h2>
+      <div class="grid">
+        <div class="field">
+          <label for="fullname">ชื่อ-สกุล</label>
+          <input id="fullname" type="text" placeholder="เช่น สมชาย ใจดี" required>
+        </div>
+        <div class="field">
+          <label for="classroom">ชั้น</label>
+          <input id="classroom" type="text" placeholder="เช่น ม.4/1" required>
+        </div>
+        <div class="field">
+          <label for="number">เลขที่</label>
+          <input id="number" type="number" min="1" placeholder="เช่น 12" required>
+        </div>
+        <div class="field">
+          <label for="school">โรงเรียน (ไม่บังคับ)</label>
+          <input id="school" type="text" placeholder="ชื่อโรงเรียน">
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="progress-wrap">
+        <span>📝 เลือกคำตอบที่ถูกต้องที่สุดเพียงข้อเดียว</span>
+        <span id="answeredText">ตอบแล้ว 0/10</span>
+      </div>
+      <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+      <form id="quizForm">
+        <div id="questions"></div>
+        <div class="actions">
+          <button type="submit" id="submitBtn">ส่งคำตอบและตรวจคะแนน</button>
+        </div>
+      </form>
+      <div id="sendStatus" class="status"></div>
+    </section>
+
+    <section class="card" id="result">
+      <h2>🎉 ผลการทำแบบทดสอบ</h2>
+      <div class="score" id="scoreText">0/10</div>
+      <div class="result-note" id="resultNote"></div>
+      <div class="answer-review" id="answerReview"></div>
+    </section>
+
+    <footer>แบบทดสอบตัวอย่างสำหรับวิชาวิทยาการคำนวณ ระดับชั้นมัธยมศึกษาปีที่ 4</footer>
+  </main>
+
+  <script>
+    // ============================================================
+    // 1) ใส่ URL ของ Google Apps Script Web App ที่นี่ภายหลัง
+    // ตัวอย่าง:
+    // const APPS_SCRIPT_URL = "https://script.google.com/macros/s/...../exec";
+    // ============================================================
+    const GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/1rn7TLrE2G7R13H-5NLRs-9-1SvB79inkn5vgo7Flatg/edit?usp=sharing";
+    const GOOGLE_SHEET_ID = "1rn7TLrE2G7R13H-5NLRs-9-1SvB79inkn5vgo7Flatg";
+
+    // สำคัญ: ลิงก์ Google Sheet ด้านบนใช้ระบุชีตปลายทาง
+    // แต่หน้า HTML ไม่สามารถเขียนข้อมูลลงชีตโดยตรงได้
+    // ต้องนำ URL ของ Google Apps Script Web App มาใส่ในบรรทัดนี้ภายหลัง
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxCf7lnNUVyFFk7-P7UHzo_jXfpn-4M6W72ejlwwslePRnIz9Jlu8mVrGgDyaFLNPY/exec";
+
+    const quiz = [
+      {
+        q: "ข้อใดอธิบายความหมายของ “แนวคิดเชิงคำนวณ (Computational Thinking)” ได้เหมาะสมที่สุด",
+        choices: [
+          "การใช้คอมพิวเตอร์คำนวณตัวเลขให้เร็วที่สุด",
+          "กระบวนการคิดอย่างเป็นระบบเพื่อแก้ปัญหาและออกแบบวิธีแก้ปัญหา",
+          "การเขียนโปรแกรมด้วยภาษาใดภาษาหนึ่งเท่านั้น",
+          "การใช้อินเทอร์เน็ตค้นหาคำตอบ"
+        ],
+        answer: 1,
+        exp: "แนวคิดเชิงคำนวณเป็นกระบวนการคิดอย่างเป็นระบบเพื่อวิเคราะห์และแก้ปัญหา ไม่ได้จำกัดเฉพาะการเขียนโปรแกรม"
+      },
+      {
+        q: "หากปัญหาใหญ่ถูกแบ่งออกเป็นปัญหาย่อย ๆ เพื่อให้แก้ได้ง่ายขึ้น เรียกว่าแนวคิดใด",
+        choices: [
+          "การแยกย่อยปัญหา (Decomposition)",
+          "การหารูปแบบ (Pattern Recognition)",
+          "การคิดเชิงนามธรรม (Abstraction)",
+          "การประเมินผล (Evaluation)"
+        ],
+        answer: 0,
+        exp: "Decomposition คือการแบ่งปัญหาขนาดใหญ่ออกเป็นส่วนย่อยที่จัดการได้ง่ายขึ้น"
+      },
+      {
+        q: "ข้อใดเป็นตัวอย่างของการหารูปแบบ (Pattern Recognition)",
+        choices: [
+          "แบ่งงานกลุ่มออกเป็น 4 หน้าที่",
+          "สังเกตว่าปัญหาหลายข้อมีขั้นตอนการแก้คล้ายกัน",
+          "ตัดรายละเอียดที่ไม่เกี่ยวข้องออก",
+          "เขียนขั้นตอนการทำงานเป็นลำดับ"
+        ],
+        answer: 1,
+        exp: "Pattern Recognition คือการมองหาความเหมือน ความสัมพันธ์ หรือรูปแบบที่เกิดซ้ำ"
+      },
+      {
+        q: "การเลือกพิจารณาเฉพาะข้อมูลสำคัญและละรายละเอียดที่ไม่จำเป็น ตรงกับแนวคิดใด",
+        choices: [
+          "Decomposition",
+          "Pattern Recognition",
+          "Abstraction",
+          "Debugging"
+        ],
+        answer: 2,
+        exp: "Abstraction คือการมุ่งเน้นสาระสำคัญและละรายละเอียดที่ไม่จำเป็นต่อการแก้ปัญหา"
+      },
+      {
+        q: "อัลกอริทึม (Algorithm) หมายถึงข้อใด",
+        choices: [
+          "ชุดคำสั่งหรือขั้นตอนที่เรียงลำดับอย่างชัดเจนเพื่อแก้ปัญหา",
+          "โปรแกรมคอมพิวเตอร์ที่เขียนเสร็จแล้ว",
+          "อุปกรณ์สำหรับประมวลผลข้อมูล",
+          "ชื่อของภาษาคอมพิวเตอร์ชนิดหนึ่ง"
+        ],
+        answer: 0,
+        exp: "อัลกอริทึมคือขั้นตอนการแก้ปัญหาที่มีลำดับและชัดเจน สามารถนำไปปฏิบัติหรือเขียนเป็นโปรแกรมได้"
+      },
+      {
+        q: "สัญลักษณ์รูปสี่เหลี่ยมขนมเปียกปูนในผังงาน (Flowchart) มักใช้แทนสิ่งใด",
+        choices: [
+          "เริ่มต้น/สิ้นสุด",
+          "การรับหรือแสดงผลข้อมูล",
+          "การตัดสินใจหรือเงื่อนไข",
+          "กระบวนการประมวลผลทั่วไป"
+        ],
+        answer: 2,
+        exp: "สี่เหลี่ยมขนมเปียกปูนใช้แทนการตัดสินใจหรือเงื่อนไขที่มีทางเลือก เช่น จริง/เท็จ"
+      },
+      {
+        q: "ถ้าต้องการให้โปรแกรมแสดงข้อความซ้ำ 10 ครั้ง ควรใช้โครงสร้างใดเหมาะสมที่สุด",
+        choices: [
+          "โครงสร้างแบบลำดับ",
+          "โครงสร้างแบบเงื่อนไข",
+          "โครงสร้างแบบวนซ้ำ",
+          "โครงสร้างแบบสุ่ม"
+        ],
+        answer: 2,
+        exp: "การทำคำสั่งเดิมซ้ำหลายครั้งเหมาะกับโครงสร้างแบบวนซ้ำ (Loop)"
+      },
+      {
+        q: "ตัวแปร (Variable) ในการเขียนโปรแกรมมีหน้าที่หลักอะไร",
+        choices: [
+          "เก็บค่าหรือข้อมูลที่อาจเปลี่ยนแปลงได้",
+          "เชื่อมต่ออินเทอร์เน็ต",
+          "ป้องกันไวรัส",
+          "แสดงรูปภาพเท่านั้น"
+        ],
+        answer: 0,
+        exp: "ตัวแปรใช้เก็บข้อมูลสำหรับนำไปใช้งานหรือประมวลผล และค่าของมันสามารถเปลี่ยนได้"
+      },
+      {
+        q: "เมื่อโปรแกรมทำงานไม่ตรงตามที่ต้องการ การค้นหาและแก้ไขข้อผิดพลาดเรียกว่าอะไร",
+        choices: [
+          "Compiling",
+          "Debugging",
+          "Uploading",
+          "Formatting"
+        ],
+        answer: 1,
+        exp: "Debugging คือกระบวนการค้นหา วิเคราะห์ และแก้ไขข้อผิดพลาดของโปรแกรม"
+      },
+      {
+        q: "ข้อใดเป็นลำดับการแก้ปัญหาที่เหมาะสมที่สุด",
+        choices: [
+          "ลงมือเขียนโปรแกรม → วิเคราะห์ปัญหา → ทดสอบ → ออกแบบวิธีแก้",
+          "วิเคราะห์ปัญหา → ออกแบบวิธีแก้ → ลงมือทำ/เขียนโปรแกรม → ทดสอบและปรับปรุง",
+          "ทดสอบ → เขียนโปรแกรม → วิเคราะห์ปัญหา → ปรับปรุง",
+          "ออกแบบหน้าจอ → ส่งงาน → วิเคราะห์ปัญหา → ทดสอบ"
+        ],
+        answer: 1,
+        exp: "โดยทั่วไปควรเริ่มจากวิเคราะห์ปัญหา ออกแบบวิธีแก้ ลงมือพัฒนา แล้วจึงทดสอบและปรับปรุง"
+      }
+    ];
+
+    const questionsEl = document.getElementById("questions");
+    const progressBar = document.getElementById("progressBar");
+    const answeredText = document.getElementById("answeredText");
+    const form = document.getElementById("quizForm");
+    const result = document.getElementById("result");
+    const scoreText = document.getElementById("scoreText");
+    const resultNote = document.getElementById("resultNote");
+    const answerReview = document.getElementById("answerReview");
+    const sendStatus = document.getElementById("sendStatus");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function renderQuiz(){
+      questionsEl.innerHTML = quiz.map((item, i) => `
+        <div class="question">
+          <h3>${i+1}. ${item.q}</h3>
+          ${item.choices.map((c, j) => `
+            <label class="option">
+              <input type="radio" name="q${i}" value="${j}">
+              <span>${String.fromCharCode(3585+j)}. ${c}</span>
+            </label>
+          `).join("")}
+        </div>
+      `).join("");
+
+      document.querySelectorAll('input[type="radio"]').forEach(el=>{
+        el.addEventListener("change", updateProgress);
+      });
+    }
+
+    function updateProgress(){
+      let answered = 0;
+      quiz.forEach((_,i)=>{
+        if(document.querySelector(`input[name="q${i}"]:checked`)) answered++;
+      });
+      answeredText.textContent = `ตอบแล้ว ${answered}/${quiz.length}`;
+      progressBar.style.width = `${(answered/quiz.length)*100}%`;
+    }
+
+    function validateStudent(){
+      const fullname = document.getElementById("fullname").value.trim();
+      const classroom = document.getElementById("classroom").value.trim();
+      const number = document.getElementById("number").value.trim();
+      if(!fullname || !classroom || !number){
+        alert("กรุณากรอกชื่อ-สกุล ชั้น และเลขที่ให้ครบ");
+        return false;
+      }
+      return true;
+    }
+
+    function calculateResult(){
+      let score = 0;
+      const answers = [];
+      quiz.forEach((item,i)=>{
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const value = selected ? Number(selected.value) : null;
+        answers.push(value);
+        if(value === item.answer) score++;
+      });
+      return {score, answers};
+    }
+
+    function showResult(score, answers){
+      scoreText.textContent = `${score}/${quiz.length}`;
+      const percent = Math.round((score/quiz.length)*100);
+      resultNote.textContent =
+        percent >= 80 ? `ยอดเยี่ยมมาก ได้ ${percent}%` :
+        percent >= 60 ? `ทำได้ดี ได้ ${percent}% ลองทบทวนข้อที่ผิดอีกเล็กน้อย` :
+        `ได้ ${percent}% ควรทบทวนเนื้อหาแล้วลองใหม่อีกครั้ง`;
+
+      answerReview.innerHTML = quiz.map((item,i)=>{
+        const selected = answers[i];
+        const correct = selected === item.answer;
+        const yourText = selected === null ? "ไม่ได้ตอบ" : item.choices[selected];
+        const correctText = item.choices[item.answer];
+        return `
+          <div class="review-item ${correct ? "correct":"wrong"}">
+            <strong>ข้อ ${i+1}: ${correct ? "✅ ถูกต้อง" : "❌ ยังไม่ถูก"}</strong><br>
+            <small>
+              คำตอบของคุณ: ${yourText}<br>
+              เฉลย: ${correctText}<br>
+              เหตุผล: ${item.exp}
+            </small>
+          </div>
+        `;
+      }).join("");
+
+      result.style.display = "block";
+      result.scrollIntoView({behavior:"smooth", block:"start"});
+    }
+
+    async function sendToGoogleSheet(payload){
+      if(!APPS_SCRIPT_URL){
+        sendStatus.className = "status warn";
+        sendStatus.textContent = "กำหนด Google Sheet ปลายทางแล้ว แต่ยังไม่ได้ใส่ URL ของ Google Apps Script Web App — คะแนนถูกตรวจในหน้าเว็บแล้ว แต่ยังไม่ได้บันทึกออนไลน์";
+        return;
+      }
+
+      try{
+        sendStatus.className = "status warn";
+        sendStatus.textContent = "กำลังบันทึกผลลง Google Sheets...";
+
+        const response = await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          headers: {"Content-Type":"text/plain;charset=utf-8"},
+          body: JSON.stringify(payload)
+        });
+
+        const text = await response.text();
+        sendStatus.className = "status ok";
+        sendStatus.textContent = "✅ บันทึกผลลง Google Sheets เรียบร้อยแล้ว";
+      }catch(err){
+        console.error(err);
+        sendStatus.className = "status warn";
+        sendStatus.textContent = "ตรวจคะแนนได้แล้ว แต่ยังส่งข้อมูลไป Google Sheets ไม่สำเร็จ กรุณาตรวจ URL ของ Apps Script";
+      }
+    }
+
+    form.addEventListener("submit", async (e)=>{
+      e.preventDefault();
+      if(!validateStudent()) return;
+
+      const {score, answers} = calculateResult();
+      showResult(score, answers);
+
+      const payload = {
+        timestamp: new Date().toISOString(),
+        fullname: document.getElementById("fullname").value.trim(),
+        classroom: document.getElementById("classroom").value.trim(),
+        number: document.getElementById("number").value.trim(),
+        school: document.getElementById("school").value.trim(),
+        score: score,
+        total: quiz.length,
+        answers: answers.map((a,i)=>({
+          question: i+1,
+          selectedIndex: a,
+          selectedText: a === null ? "" : quiz[i].choices[a],
+          correctIndex: quiz[i].answer,
+          isCorrect: a === quiz[i].answer
+        }))
+      };
+
+      submitBtn.disabled = true;
+      await sendToGoogleSheet(payload);
+      submitBtn.disabled = false;
+    });
+
+    renderQuiz();
+  </script>
+</body>
+</html>
