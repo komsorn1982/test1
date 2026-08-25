@@ -1,69 +1,192 @@
 <!doctype html>
 <html lang="th">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ข้อสอบออนไลน์ หลักเกณฑ์การสอบแข่งขันครูผู้ช่วย พ.ศ. 2566</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ข้อสอบออนไลน์ การใช้ภาษาไทยเพื่อการสื่อสาร</title>
 <style>
-:root{--p:#4338ca;--p2:#7c3aed;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--ok:#15803d;--bad:#b91c1c}*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;color:var(--ink);background:linear-gradient(145deg,#eef2ff,#f8fafc 55%,#f5f3ff);min-height:100vh}.hero{padding:42px 18px 76px;text-align:center;color:#fff;background:linear-gradient(135deg,var(--p),var(--p2))}.hero h1{font-size:clamp(27px,4vw,44px);line-height:1.25;margin:0 0 12px}.hero p{margin:4px auto;max-width:850px;opacity:.95}.wrap{width:min(900px,92%);margin:-42px auto 50px}.card{background:#fff;border-radius:22px;padding:26px;box-shadow:0 18px 50px rgba(15,23,42,.10);margin-bottom:18px}.label{font-weight:800;display:block;margin-bottom:8px}.name{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:13px;font-size:17px;outline:none}.name:focus{border-color:#818cf8;box-shadow:0 0 0 3px #e0e7ff}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.pill{border-radius:14px;padding:12px;background:#f8fafc;border:1px solid var(--line);text-align:center}.pill b{display:block;font-size:20px}.actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:20px}button{border:0;border-radius:13px;padding:13px 20px;font-size:16px;font-weight:800;cursor:pointer}.primary{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff}.secondary{background:#eef2ff;color:#3730a3}.ghost{background:#f1f5f9;color:#334155}button:disabled{opacity:.45;cursor:not-allowed}#exam,#result{display:none}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.counter{font-weight:900;color:#3730a3;background:#eef2ff;padding:9px 12px;border-radius:12px}.progress{height:11px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:15px 0 24px}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--p),var(--p2));transition:width .25s}.q{font-size:20px;line-height:1.65;font-weight:850;margin-bottom:16px}.option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;background:#fff;cursor:pointer}.option:hover{background:#f8fafc;border-color:#a5b4fc}.option.selected{background:#eef2ff;border-color:#818cf8}.option input{margin-top:4px;accent-color:var(--p);transform:scale(1.15)}.letter{font-weight:900;color:#4338ca;min-width:24px}.status{margin-top:16px;padding:13px;border-radius:12px;background:#fef3c7;color:#92400e;display:none}.score{font-size:58px;font-weight:950;color:var(--p);margin:8px 0}.resultgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:18px auto;max-width:650px}.rbox{padding:14px;border:1px solid var(--line);background:#f8fafc;border-radius:14px}.rbox strong{display:block;font-size:24px;color:#3730a3}.small{color:var(--muted);font-size:14px;line-height:1.55}.review-title{margin:34px 0 14px;font-size:24px}.review-item{border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0;background:#fff}.review-q{font-size:18px;font-weight:850;line-height:1.55;margin-bottom:12px}.review-choice{padding:10px 12px;border-radius:10px;margin:7px 0;border:1px solid #eef2f7;background:#f8fafc}.review-choice.correct{border-color:#86efac;background:#f0fdf4;color:#166534;font-weight:750}.review-choice.wrong{border-color:#fecaca;background:#fef2f2;color:#991b1b;font-weight:750}.review-badge{display:inline-block;margin-top:10px;padding:7px 10px;border-radius:999px;font-weight:850;font-size:14px}.review-badge.ok{background:#dcfce7;color:#166534}.review-badge.bad{background:#fee2e2;color:#991b1b}footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 30px}@media(max-width:650px){.card{padding:20px}.summary{grid-template-columns:1fr}.resultgrid{grid-template-columns:1fr}.actions button{flex:1}.q{font-size:18px}.review-q{font-size:17px}}
+:root{--p:#2563eb;--p2:#7c3aed;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--ok:#15803d;--bad:#b91c1c;--warn:#92400e}
+*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;color:var(--ink);background:linear-gradient(145deg,#eff6ff,#f8fafc 55%,#f5f3ff);min-height:100vh}.hero{padding:42px 18px 76px;text-align:center;color:#fff;background:linear-gradient(135deg,var(--p),var(--p2))}.hero h1{font-size:clamp(27px,4vw,44px);line-height:1.25;margin:0 0 12px}.hero p{margin:4px auto;max-width:850px;opacity:.96}.wrap{width:min(900px,92%);margin:-42px auto 50px}.card{background:#fff;border-radius:22px;padding:26px;box-shadow:0 18px 50px rgba(15,23,42,.10);margin-bottom:18px}.label{font-weight:800;display:block;margin-bottom:8px}.name{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:13px;font-size:17px;outline:none}.name:focus{border-color:#93c5fd;box-shadow:0 0 0 3px #dbeafe}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.pill{border-radius:14px;padding:12px;background:#f8fafc;border:1px solid var(--line);text-align:center}.pill b{display:block;font-size:20px}.actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:20px}button{border:0;border-radius:13px;padding:13px 20px;font-size:16px;font-weight:800;cursor:pointer}.primary{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff}.secondary{background:#eff6ff;color:#1d4ed8}.ghost{background:#f1f5f9;color:#334155}button:disabled{opacity:.45;cursor:not-allowed}#exam,#result{display:none}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.counter{font-weight:900;color:#1d4ed8;background:#eff6ff;padding:9px 12px;border-radius:12px}.progress{height:11px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:15px 0 24px}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--p),var(--p2));transition:width .25s}.q{font-size:20px;line-height:1.65;font-weight:850;margin-bottom:16px}.option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;background:#fff;cursor:pointer}.option:hover{background:#f8fafc;border-color:#93c5fd}.option.selected{background:#eff6ff;border-color:#60a5fa}.option input{margin-top:4px;accent-color:var(--p);transform:scale(1.15)}.letter{font-weight:900;color:#2563eb;min-width:24px}.status{margin-top:16px;padding:13px;border-radius:12px;background:#fef3c7;color:var(--warn);display:none}.score{font-size:56px;font-weight:950;color:var(--p);margin:8px 0}.resultgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px auto;max-width:750px}.rbox{padding:14px;border:1px solid var(--line);background:#f8fafc;border-radius:14px}.rbox strong{display:block;font-size:24px;color:#1d4ed8}.small{color:var(--muted);font-size:14px;line-height:1.55}.review-title{margin:34px 0 14px;font-size:24px}.review-item{border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0;background:#fff}.review-q{font-size:18px;font-weight:850;line-height:1.55;margin-bottom:12px}.review-choice{padding:10px 12px;border-radius:10px;margin:7px 0;border:1px solid #eef2f7;background:#f8fafc}.review-choice.selected-ok{border-color:#86efac;background:#f0fdf4;color:#166534;font-weight:750}.review-choice.selected-bad{border-color:#fecaca;background:#fef2f2;color:#991b1b;font-weight:750}.review-badge{display:inline-block;margin-top:10px;padding:7px 10px;border-radius:999px;font-weight:850;font-size:14px}.review-badge.ok{background:#dcfce7;color:#166534}.review-badge.bad{background:#fee2e2;color:#991b1b}footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 30px}@media(max-width:650px){.card{padding:20px}.summary,.resultgrid{grid-template-columns:1fr}.actions button{flex:1}.q{font-size:18px}.review-q{font-size:17px}}
 </style>
 </head>
 <body>
-<section class="hero"><h1>แบบทดสอบหลักเกณฑ์การสอบแข่งขันครูผู้ช่วย</h1><p>อ้างอิงหลักเกณฑ์และวิธีการสอบแข่งขัน พ.ศ. 2566 • ปรนัย 4 ตัวเลือก จำนวน 40 ข้อ</p><p>ความจำ 20 ข้อ • วิเคราะห์ 20 ข้อ • ง่าย 30% • ปานกลาง 40% • ยาก 30%</p></section>
+<section class="hero">
+  <h1>ข้อสอบออนไลน์ การใช้ภาษาไทยเพื่อการสื่อสาร</h1>
+  <p>ปรนัย 4 ตัวเลือก จำนวน 20 ข้อ • ข้อละ 2 คะแนน • คะแนนเต็ม 40 คะแนน</p>
+  <p>ตรวจคะแนนด้วย Google Apps Script และบันทึกผลลง Google Sheet</p>
+</section>
 <main class="wrap">
-<section class="card" id="startCard"><h2>ข้อมูลผู้เข้าสอบ</h2><label class="label" for="fullname">ชื่อ-สกุล</label><input class="name" id="fullname" autocomplete="name" placeholder="กรอกชื่อ-สกุล" maxlength="100"><div class="summary"><div class="pill"><b>40</b>ข้อทั้งหมด</div><div class="pill"><b>20 + 20</b>ความจำ / วิเคราะห์</div><div class="pill"><b>30 / 40 / 30</b>ง่าย / ปานกลาง / ยาก (%)</div></div><div class="actions"><button class="primary" id="startBtn">เริ่มทำข้อสอบ</button></div></section>
-<section class="card" id="exam"><div class="topline"><div class="counter" id="counter">ข้อ 1/40</div><div class="small" id="answered">ตอบแล้ว 0/40</div></div><div class="progress"><div class="bar" id="bar"></div></div><div class="q" id="questionText"></div><div id="choices"></div><div class="actions"><button class="ghost" id="prevBtn">ย้อนกลับ</button><button class="secondary" id="nextBtn">ข้อต่อไป</button><button class="primary" id="submitBtn" style="display:none">ส่งคำตอบและตรวจคะแนน</button></div><div class="status" id="status"></div></section>
-<section class="card" id="result"><h2>ส่งคำตอบเรียบร้อย</h2><div class="small" id="resultName"></div><div class="score" id="totalScore">-/40</div><div class="resultgrid"><div class="rbox">ความจำ<strong id="memoryScore">-/20</strong></div><div class="rbox">วิเคราะห์<strong id="analysisScore">-/20</strong></div><div class="rbox">ง่าย<strong id="easyScore">-/12</strong></div><div class="rbox">ปานกลาง<strong id="mediumScore">-/16</strong></div><div class="rbox">ยาก<strong id="hardScore">-/12</strong></div><div class="rbox">คิดเป็นร้อยละ<strong id="percentScore">-%</strong></div></div><h3 class="review-title">เฉลยและตรวจคำตอบทั้ง 40 ข้อ</h3><div id="reviewList"></div></section>
-<footer>ข้อสอบสร้างจากเอกสารหลักเกณฑ์และวิธีการสอบแข่งขันเพื่อบรรจุและแต่งตั้งบุคคลเข้ารับราชการ ตำแหน่งครูผู้ช่วย สังกัด สพฐ. พ.ศ. 2566</footer>
+<section class="card" id="startCard">
+  <h2>ข้อมูลผู้เข้าสอบ</h2>
+  <label class="label" for="fullname">ชื่อ-สกุล</label>
+  <input class="name" id="fullname" autocomplete="name" placeholder="กรอกชื่อ-สกุล" maxlength="100">
+  <div class="summary">
+    <div class="pill"><b>20</b>ข้อทั้งหมด</div>
+    <div class="pill"><b>4</b>ตัวเลือกต่อข้อ</div>
+    <div class="pill"><b>40</b>คะแนนเต็ม</div>
+  </div>
+  <div class="actions"><button class="primary" id="startBtn">เริ่มทำข้อสอบ</button></div>
+</section>
+
+<section class="card" id="exam">
+  <div class="topline"><div class="counter" id="counter">ข้อ 1/20</div><div class="small" id="answered">ตอบแล้ว 0/20</div></div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="q" id="questionText"></div>
+  <div id="choices"></div>
+  <div class="actions">
+    <button class="ghost" id="prevBtn">ย้อนกลับ</button>
+    <button class="secondary" id="nextBtn">ข้อต่อไป</button>
+    <button class="primary" id="submitBtn" style="display:none">ส่งคำตอบและตรวจคะแนน</button>
+  </div>
+  <div class="status" id="status"></div>
+</section>
+
+<section class="card" id="result">
+  <h2>ส่งคำตอบเรียบร้อย</h2>
+  <div class="small" id="resultName"></div>
+  <div class="score" id="totalScore">-/40</div>
+  <div class="resultgrid">
+    <div class="rbox">ตอบถูก<strong id="correctCount">-/20</strong></div>
+    <div class="rbox">คะแนน<strong id="score40">-/40</strong></div>
+    <div class="rbox">คิดเป็นร้อยละ<strong id="percentScore">-%</strong></div>
+  </div>
+  <h3 class="review-title">ตรวจคำตอบทั้ง 20 ข้อ</h3>
+  <div id="reviewList"></div>
+</section>
+<footer>แบบทดสอบภาษาไทยเพื่อการสื่อสาร • ผลการสอบบันทึกใน Google Sheet</footer>
 </main>
 <script>
 const APPS_SCRIPT_URL="https://script.google.com/macros/s/AKfycbzQOdXUfAgb-oszFKVcZ_B07DeygPH2ioAYsqN5MTi5cNEJBIhYtsU61QEPUflaaz4u/exec";
-const CLIENT_KEY={M01:2,M02:2,M03:2,M04:2,M05:2,M06:2,M07:0,M08:2,M09:3,M10:0,M11:1,M12:1,M13:3,M14:1,M15:1,M16:2,M17:2,M18:2,M19:2,M20:1,A01:2,A02:2,A03:1,A04:2,A05:1,A06:1,A07:2,A08:3,A09:1,A10:1,A11:0,A12:0,A13:1,A14:1,A15:1,A16:1,A17:1,A18:0,A19:1,A20:1};
+const LETTERS=['ก','ข','ค','ง'];
+
 const QUESTIONS=[
-{id:"M01",q:"การสอบแข่งขันตามหลักเกณฑ์นี้แบ่งออกเป็นกี่ภาค",c:["1 ภาค","2 ภาค","3 ภาค","4 ภาค"]},
-{id:"M02",q:"การประเมิน ภาค ค ใช้เวลาได้ไม่เกินเท่าใดต่อผู้เข้ารับการประเมินหนึ่งราย",c:["10 นาที","15 นาที","20 นาที","30 นาที"]},
-{id:"M03",q:"ผู้สอบแข่งขันต้องได้คะแนน ภาค ก และ ภาค ข อย่างน้อยเท่าใดในแต่ละภาค จึงมีสิทธิเข้ารับการประเมิน ภาค ค",c:["ไม่น้อยกว่าร้อยละ 50","ไม่น้อยกว่าร้อยละ 55","ไม่น้อยกว่าร้อยละ 60","ไม่น้อยกว่าร้อยละ 70"]},
-{id:"M04",q:"ค่าธรรมเนียมการสมัครสอบแข่งขันตามหลักเกณฑ์กำหนดไว้จำนวนเท่าใด",c:["100 บาท","200 บาท","300 บาท","500 บาท"]},
-{id:"M05",q:"ภาค ก ความรู้ความสามารถทั่วไป มีคะแนนเต็มเท่าใด",c:["100 คะแนน","150 คะแนน","200 คะแนน","250 คะแนน"]},
-{id:"M06",q:"ภาค ค ความเหมาะสมกับตำแหน่ง วิชาชีพ และการปฏิบัติงานในสถานศึกษา มีคะแนนเต็มเท่าใด",c:["50 คะแนน","75 คะแนน","100 คะแนน","200 คะแนน"]},
-{id:"M07",q:"ข้อใดระบุสัดส่วนคะแนนของ ภาค ก ได้ถูกต้อง",c:["คิดวิเคราะห์ 100 อังกฤษ 50 ความรู้และลักษณะการเป็นข้าราชการที่ดี 50","คิดวิเคราะห์ 75 อังกฤษ 75 ความรู้และลักษณะการเป็นข้าราชการที่ดี 50","คิดวิเคราะห์ 100 อังกฤษ 75 ความรู้และลักษณะการเป็นข้าราชการที่ดี 25","คิดวิเคราะห์ 50 อังกฤษ 50 ความรู้และลักษณะการเป็นข้าราชการที่ดี 100"]},
-{id:"M08",q:"ภาค ข หัวข้อ “มาตรฐานความรู้ทั่วไปในการจัดการเรียนการสอน” มีคะแนนเต็มเท่าใด",c:["25 คะแนน","50 คะแนน","75 คะแนน","100 คะแนน"]},
-{id:"M09",q:"ภาค ข หัวข้อ “มาตรฐานความรู้ในเนื้อหาวิชาที่สอน (วิชาเอก)” มีคะแนนเต็มเท่าใด",c:["25 คะแนน","50 คะแนน","75 คะแนน","100 คะแนน"]},
-{id:"M10",q:"ภาค ข หัวข้อ “ความรอบรู้กฎหมายที่เกี่ยวข้องกับการปฏิบัติงาน และแนวทางการปฏิรูปการศึกษา” มีคะแนนเต็มเท่าใด",c:["25 คะแนน","50 คะแนน","75 คะแนน","100 คะแนน"]},
-{id:"M11",q:"ภาค ค องค์ประกอบ “คุณลักษณะส่วนบุคคล” มีคะแนนเต็มเท่าใด",c:["20 คะแนน","25 คะแนน","30 คะแนน","50 คะแนน"]},
-{id:"M12",q:"ภาค ค องค์ประกอบ “การพัฒนาตนเองและวิชาชีพ” มีคะแนนเต็มเท่าใด",c:["20 คะแนน","25 คะแนน","30 คะแนน","50 คะแนน"]},
-{id:"M13",q:"ภาค ค องค์ประกอบ “ความสามารถด้านการสอน” มีคะแนนเต็มเท่าใด",c:["25 คะแนน","30 คะแนน","40 คะแนน","50 คะแนน"]},
-{id:"M14",q:"คณะกรรมการประเมิน ภาค ค ในแต่ละคณะต้องมีจำนวนกี่คน",c:["2–3 คน","3–5 คน","5–7 คน","ไม่น้อยกว่า 7 คน"]},
-{id:"M15",q:"กรณีผู้สอบแข่งขันได้มีคะแนนรวม ภาค ก ภาค ข และ ภาค ค เท่ากัน ลำดับการพิจารณาเพื่อจัดอันดับที่ถูกต้องคือข้อใด",c:["ภาค ก มากกว่า → ภาค ข มากกว่า → เลขประจำตัวสอบก่อน","ภาค ค มากกว่า → ภาค ข มากกว่า → เลขประจำตัวสอบก่อน","ภาค ข มากกว่า → ภาค ค มากกว่า → เลขประจำตัวสอบหลัง","ภาค ค มากกว่า → ภาค ก มากกว่า → เลขประจำตัวสอบหลัง"]},
-{id:"M16",q:"กรอบระยะเวลาการขึ้นบัญชีผู้สอบแข่งขันได้กำหนดไว้ไม่เกินเท่าใดนับแต่วันประกาศขึ้นบัญชี",c:["6 เดือน","1 ปี","2 ปี","3 ปี"]},
-{id:"M17",q:"หากมีการประกาศขึ้นบัญชีผู้สอบแข่งขันได้ในคุณวุฒิ กลุ่มวิชา หรือสาขาวิชาเอกเดียวกันครั้งใหม่ บัญชีครั้งก่อนมีผลอย่างไร",c:["ยังใช้ต่อได้จนหมดอายุ","ระงับชั่วคราว 30 วัน","เป็นอันยกเลิก","ต้องให้ ก.ค.ศ. อนุมัติเป็นรายกรณี"]},
-{id:"M18",q:"หนังสือเรียกตัวผู้สอบแข่งขันได้ให้มารายงานตัว ต้องแจ้งกำหนดวันรายงานตัวภายในช่วงใดนับแต่วันประทับตราลงทะเบียนของไปรษณีย์ต้นทาง",c:["3–5 วัน","5–7 วัน","7–10 วัน","10–15 วัน"]},
-{id:"M19",q:"กรณีมีการสอบแข่งขันพร้อมกัน ผู้สมัครที่สมัครเกินกว่าหนึ่งแห่ง และ/หรือเกินกว่าหนึ่งกลุ่มวิชา หรือทาง หรือสาขาวิชาเอก จะเกิดผลอย่างไร",c:["เลือกยกเลิกได้หนึ่งแห่งภายหลัง","เสียสิทธิเฉพาะใบสมัครที่ยื่นทีหลัง","ถูกตัดสิทธิการสอบแข่งขันทั้งหมด","ชำระค่าธรรมเนียมเพิ่มแล้วสอบได้"]},
-{id:"M20",q:"ข้อใดถูกต้องเกี่ยวกับช่วงเวลาการรับสมัครสอบแข่งขัน",c:["รับสมัครไม่น้อยกว่า 5 วันและไม่นับวันหยุดราชการ","ประกาศรับสมัครก่อนวันรับสมัครไม่น้อยกว่า 7 วัน และรับสมัครไม่น้อยกว่า 7 วันโดยไม่เว้นวันหยุดราชการ","ประกาศรับสมัครล่วงหน้า 3 วัน และรับสมัคร 10 วันทำการ","ประกาศรับสมัครและเปิดรับสมัครในวันเดียวกันได้"]},
-{id:"A01",q:"ผู้สมัครคนหนึ่งได้ ภาค ก 130/200 คะแนน และ ภาค ข 115/200 คะแนน เขามีสิทธิเข้าประเมิน ภาค ค หรือไม่",c:["มีสิทธิ เพราะคะแนนรวมสองภาคมากกว่าร้อยละ 60","มีสิทธิ เพราะ ภาค ก ผ่านร้อยละ 60 แล้ว","ไม่มีสิทธิ เพราะ ภาค ข ได้ 57.5% ต่ำกว่าร้อยละ 60","ไม่มีสิทธิ เพราะต้องได้อย่างน้อย 140 คะแนนทุกภาค"]},
-{id:"A02",q:"ผู้สมัครได้ ภาค ก 120/200 ภาค ข 120/200 และ ภาค ค 59/100 จะถือว่าเป็นผู้สอบแข่งขันได้หรือไม่",c:["ได้ เพราะคะแนนรวมเกินครึ่ง","ได้ เพราะผ่าน ภาค ก และ ภาค ข แล้ว","ไม่ได้ เพราะ ภาค ค ต่ำกว่าร้อยละ 60","ไม่ได้ เพราะ ภาค ก และ ภาค ข ต้องเกินร้อยละ 70"]},
-{id:"A03",q:"ผู้สมัคร A และ B ได้คะแนนรวมเท่ากัน แต่ A ได้ ภาค ค 75 คะแนน ส่วน B ได้ ภาค ค 80 คะแนน ใครควรอยู่ลำดับดีกว่า",c:["A เพราะได้คะแนนรวมเท่ากันจึงดูเลขสอบ","B เพราะได้คะแนน ภาค ค มากกว่า","A เพราะต้องดู ภาค ก ก่อน","ต้องจับสลาก"]},
-{id:"A04",q:"ในวันที่มีการสอบแข่งขันพร้อมกัน ผู้สมัครคนหนึ่งสมัครทั้ง อ.ก.ค.ศ. เขตพื้นที่การศึกษาประถมศึกษาแห่งหนึ่ง และ อ.ก.ค.ศ. เขตพื้นที่การศึกษามัธยมศึกษาอีกแห่งหนึ่ง ผลตามหลักเกณฑ์คือข้อใด",c:["สอบได้ทั้งสองแห่งถ้าจ่ายค่าธรรมเนียมครบ","เลือกไปสอบเพียงแห่งเดียวในวันสอบได้","ถูกตัดสิทธิการสอบแข่งขันทั้งหมด","มีสิทธิเฉพาะใบสมัครที่ยื่นก่อน"]},
-{id:"A05",q:"หน่วยงานกำหนดให้ผู้สมัครแต่ละรายใช้เวลาประเมิน ภาค ค 25 นาที การกำหนดนี้เป็นอย่างไร",c:["ถูกต้อง เพราะไม่เกิน 30 นาที","ไม่ถูกต้อง เพราะกำหนดให้ไม่เกิน 20 นาทีต่อราย","ถูกต้องเฉพาะผู้มีประสบการณ์สอน","ไม่ถูกต้อง เพราะต้องใช้เวลา 15 นาทีเท่านั้น"]},
-{id:"A06",q:"ประกาศรับสมัครแห่งหนึ่งกำหนดค่าธรรมเนียมสมัครสอบ 500 บาท หากยึดหลักเกณฑ์ในเอกสารนี้ ข้อใดถูกต้อง",c:["ถูกต้อง เพราะแต่ละพื้นที่กำหนดเองได้","ไม่ถูกต้อง เพราะหลักเกณฑ์กำหนด 300 บาท","ถูกต้องถ้าสมัครทางอิเล็กทรอนิกส์","ไม่ถูกต้อง เพราะห้ามเก็บค่าธรรมเนียม"]},
-{id:"A07",q:"ผู้สมัครทั่วไปซึ่งไม่ได้อยู่ในกลุ่มวิชาขาดแคลน มีใบอนุญาตประกอบวิชาชีพครูที่จะหมดอายุก่อนวันรับสมัครสอบแข่งขันวันสุดท้าย สถานะใดถูกต้องที่สุด",c:["สมัครได้ เพราะดูเฉพาะวันสอบ","สมัครได้ถ้ารับรองตนเอง","ไม่เป็นไปตามคุณสมบัติ เพราะหลักฐานต้องยังไม่หมดอายุถึงวันรับสมัครวันสุดท้าย","สมัครได้ถ้ามีวุฒิปริญญาโท"]},
-{id:"A08",q:"ผู้สมัครมีคุณวุฒิในกลุ่มวิชาที่ขาดแคลนตามที่ สพฐ. กำหนด แต่วันสมัครยังไม่มีใบอนุญาตประกอบวิชาชีพครู หากจะใช้ข้อยกเว้นตามหลักเกณฑ์ เขาต้องมีใบอนุญาตหรือหลักฐานดังกล่าวเมื่อใด",c:["ภายใน 7 วันหลังสมัคร","ก่อนสอบ ภาค ก","ก่อนประเมิน ภาค ค","ก่อนบรรจุและแต่งตั้ง"]},
-{id:"A09",q:"ผู้สมัครเป็นข้าราชการอื่นและมีคุณสมบัติด้านวุฒิครบ แต่ไม่มีหนังสืออนุญาตจากผู้มีอำนาจสั่งบรรจุและแต่งตั้งให้สมัครสอบและยินยอมให้ย้ายหรือโอน ข้อใดถูกต้อง",c:["สมัครได้ตามปกติ เพราะเป็นข้าราชการอยู่แล้ว","ยังไม่ครบเงื่อนไขตามหลักเกณฑ์สำหรับผู้สมัครกลุ่มนี้","ใช้หนังสือรับรองจากเพื่อนร่วมงานแทนได้","ยื่นหนังสือหลังได้รับการบรรจุได้"]},
-{id:"A10",q:"บัญชีผู้สอบแข่งขันได้ถูกประกาศมาแล้ว 18 เดือน ต่อมามีการประกาศบัญชีใหม่ในกลุ่มวิชาเอกเดียวกัน ผลที่ถูกต้องคือข้อใด",c:["บัญชีเดิมยังใช้ต่ออีก 6 เดือน","บัญชีเดิมเป็นอันยกเลิกเมื่อมีบัญชีใหม่ในกลุ่มเดียวกัน","ใช้สองบัญชีสลับกันตามคะแนน","ให้ผู้สมัครเลือกว่าจะใช้บัญชีใด"]},
-{id:"A11",q:"ผู้สมัคร A และ B มีคะแนนรวมเท่ากัน และคะแนน ภาค ค เท่ากัน แต่ A ได้ ภาค ข 130 คะแนน ส่วน B ได้ ภาค ข 125 คะแนน ใครอยู่ลำดับดีกว่า",c:["A เพราะ ภาค ข มากกว่า","B เพราะต้องดู ภาค ก แทน","ผู้มีเลขสอบมากกว่า","ต้องอยู่ลำดับเดียวกัน"]},
-{id:"A12",q:"ผู้สมัคร A และ B มีคะแนนรวม ภาค ค และ ภาค ข เท่ากันทั้งหมด โดย A มีเลขประจำตัวสอบ 0123 และ B มีเลขประจำตัวสอบ 0125 ใครอยู่ลำดับดีกว่า",c:["A เพราะได้รับเลขประจำตัวสอบก่อน","B เพราะเลขประจำตัวสอบมากกว่า","ต้องดูอายุก่อน","ต้องจับสลาก"]},
-{id:"A13",q:"ผู้ดำเนินการสอบแข่งขันแต่งตั้งคณะกรรมการประเมิน ภาค ค จำนวน 6 คนในคณะเดียว โดยมีองค์ประกอบอื่นครบ การแต่งตั้งนี้เป็นอย่างไร",c:["ถูกต้อง เพราะมีผู้ทรงคุณวุฒิมากได้ไม่จำกัด","ไม่ถูกต้อง เพราะกำหนดให้คณะกรรมการมี 3–5 คน","ถูกต้องถ้าประธานอนุมัติ","ไม่ถูกต้อง เพราะต้องมี 7 คนพอดี"]},
-{id:"A14",q:"หนังสือเรียกตัวลงทะเบียนไปรษณีย์วันที่ 1 กันยายน และกำหนดให้รายงานตัววันที่ 13 กันยายน โดยนับจากวันประทับตราไปรษณีย์ต้นทาง การกำหนดนี้เป็นอย่างไร",c:["ถูกต้อง เพราะอยู่ภายใน 15 วัน","ไม่ถูกต้อง เพราะช่วงกำหนดต้องไม่น้อยกว่า 7 วันแต่ไม่เกิน 10 วัน","ถูกต้องถ้าผู้สมัครยินยอม","ไม่ถูกต้อง เพราะต้องรายงานตัวภายใน 3 วัน"]},
-{id:"A15",q:"ผู้สมัครได้ ภาค ก 119/200 และ ภาค ข 150/200 แม้คะแนนรวมสองภาคสูง แต่ตามเกณฑ์ควรดำเนินการอย่างไร",c:["ให้เข้าประเมิน ภาค ค เพราะคะแนนรวมเกินร้อยละ 60","ไม่ให้เข้าประเมิน ภาค ค เพราะ ภาค ก ได้ 59.5% ต่ำกว่าร้อยละ 60","ให้เข้าประเมิน ภาค ค หาก ภาค ข เกิน 70%","ให้สอบซ่อม ภาค ก ก่อน"]},
-{id:"A16",q:"ผู้สมัครได้ ภาค ก 120/200 ภาค ข 121/200 และ ภาค ค 60/100 ข้อสรุปใดถูกต้องที่สุดตามเกณฑ์คะแนน",c:["ไม่ผ่าน เพราะ ภาค ก ต้องมากกว่า 60% ไม่ใช่เท่ากับ 60%","ผ่านเกณฑ์คะแนนแต่ละภาค เพราะทุกภาคไม่น้อยกว่าร้อยละ 60 และจัดอันดับด้วยคะแนนรวม","ไม่ผ่าน เพราะ ภาค ค ต้องได้อย่างน้อย 70 คะแนน","ผ่านเฉพาะ ภาค ก และ ภาค ข แต่ไม่นับ ภาค ค"]},
-{id:"A17",q:"ผู้สอบแข่งขันได้ไม่มารายงานตัวตามกำหนดจึงถูกยกเลิกจากบัญชี ต่อมาพิสูจน์ได้ว่ามีเหตุอันสมควร ขณะนั้นบัญชียังไม่ยกเลิก และผู้ดำเนินการสอบแข่งขันวินิจฉัยว่าเหตุสมควร ผลที่เป็นไปได้คือข้อใด",c:["ไม่มีทางกลับเข้าบัญชีได้","อาจอนุมัติให้ขึ้นบัญชีไว้ตามลำดับที่เดิมได้","ต้องสอบแข่งขันใหม่เท่านั้น","กลับเข้าบัญชีได้แต่ต้องอยู่ลำดับสุดท้ายเสมอ"]},
-{id:"A18",q:"ผู้สอบแข่งขันได้ไม่อาจรับการบรรจุในวันที่กำหนดและถูกยกเลิกจากบัญชี ต่อมามีเหตุผลอันสมควร บัญชียังมีผล และผู้ดำเนินการสอบแข่งขันเห็นว่าเหตุสมควร ข้อใดสอดคล้องหลักเกณฑ์",c:["อาจอนุมัติให้กลับขึ้นบัญชีตามลำดับที่เดิมได้","กลับได้เฉพาะกรณีลาออกจากงานเดิมแล้ว","ต้องย้ายไปบัญชีสาขาอื่น","ห้ามกลับเข้าบัญชีทุกกรณี"]},
-{id:"A19",q:"หน่วยงานประกาศรับสมัครวันที่ 1 ตุลาคม และเปิดรับสมัครวันที่ 6 ตุลาคม หากไม่มีวันอื่นคั่นเพิ่มเติม การดำเนินการนี้สอดคล้องหลักเกณฑ์หรือไม่",c:["สอดคล้อง เพราะประกาศล่วงหน้า 5 วันก็เพียงพอ","ไม่สอดคล้อง เพราะต้องประกาศก่อนวันรับสมัครไม่น้อยกว่า 7 วัน","สอดคล้องถ้ารับสมัครทางออนไลน์","ไม่สอดคล้องเพราะต้องประกาศล่วงหน้าอย่างน้อย 15 วัน"]},
-{id:"A20",q:"หน่วยงานเปิดรับสมัครต่อเนื่อง 7 วันตามปฏิทิน โดยช่วงดังกล่าวมีวันเสาร์และวันอาทิตย์รวมอยู่ด้วย หากเงื่อนไขอื่นถูกต้อง การนับช่วงรับสมัครนี้เป็นอย่างไร",c:["ไม่ถูกต้อง เพราะต้องนับเฉพาะวันราชการ","ถูกต้อง เพราะหลักเกณฑ์กำหนดรับสมัครไม่น้อยกว่า 7 วันโดยไม่เว้นวันหยุดราชการ","ถูกต้องเฉพาะเมื่อสมัครด้วยตนเอง","ไม่ถูกต้อง เพราะต้องเปิดอย่างน้อย 10 วัน"]}
+{q:'ข้อใดเป็นประโยคที่ใช้ภาษาไทยได้ถูกต้องตามหลักไวยากรณ์',c:['ฉันกำลังจะไปห้องสมุดเมื่อวานนี้','พวกเราเดินเล่นกันที่สวนสาธารณะเมื่อเช้านี้','เขาไปโรงเรียนแล้วจะกลับมาตอนเย็นพรุ่งนี้','เด็กๆ เล่นของเล่นกันสนุกมากเมื่อวันพรุ่งนี้']},
+{q:'คำใดเป็นคำพ้องเสียง',c:['คำ-ขำ','แก้ว-แก้ว','บ้าน-บาน','หนัง-นั่ง']},
+{q:'ข้อใดเป็นการสรุปความที่ถูกต้องของประโยคนี้ “เด็กชายเดินเข้าร้านหนังสือเพื่อซื้อหนังสือเรียนและสมุดบันทึก”',c:['เด็กชายชอบอ่านหนังสือ','เด็กชายเข้าไปร้านหนังสือเพราะต้องการซื้อของ','เด็กชายซื้อหนังสือเรียนกับสมุดบันทึก','เด็กชายเข้าไปร้านหนังสือเพื่ออ่านหนังสือฟรี']},
+{q:'ข้อใดเป็นประโยคบอกเล่าที่สมบูรณ์',c:['ฉันชอบกินผลไม้เพราะมันมีวิตามินเยอะ','ฉันชอบกินผลไม้เพราะ','ฉันชอบผลไม้และ','ฉันชอบกินเพราะวิตามิน']},
+{q:'คำที่มีความหมายตรงข้ามกับคำว่า “กว้าง” คือข้อใด',c:['ยาว','แคบ','ลึก','ใหญ่']},
+{q:'คำใดเป็นคำที่สามารถใช้เชื่อมประโยคได้',c:['และ','ไป','ทำ','ยืน']},
+{q:'ข้อใดเป็นการใช้สำนวนไทยที่ถูกต้อง',c:['เขามีเงินเหลือล้นจนใช้ไม่หมดเหมือนต้นไม้มีราก','เมื่อถึงเวลาตัดสินใจ เขากลับทำเป็นทองไม่รู้ร้อน','เธอพูดจาไพเราะราวกับไม้บรรทัด','เขามีความสุขดั่งน้ำไหลลงดิน']},
+{q:'ประโยคใดแสดงถึงความหมายเชิงเปรียบเทียบ',c:['ฟ้าในวันนี้แจ่มใสและสดใสมาก','เขาร้องเพลงเพราะเหมือนนกน้อยในสวน','นักเรียนกำลังอ่านหนังสืออยู่ที่ห้องสมุด','ฉันเดินไปโรงเรียนพร้อมกับเพื่อนสนิท']},
+{q:'ข้อใดเป็นการจับใจความสำคัญที่ถูกต้องของข้อความนี้ “แมวเป็นสัตว์เลี้ยงที่นิยมเลี้ยงกันมาก มันมีนิสัยรักอิสระและขี้อ้อน คนที่ชอบสัตว์มักนิยมเลี้ยงแมวเพราะความน่ารักของมัน”',c:['แมวเป็นสัตว์เลี้ยงที่ชอบอยู่ตามลำพัง','แมวเป็นสัตว์เลี้ยงที่ได้รับความนิยมและมีนิสัยขี้อ้อน','แมวเป็นสัตว์ที่คนกลัวเพราะมันมีนิสัยขี้อ้อน','แมวเป็นสัตว์เลี้ยงที่ไม่ต้องการความรักจากเจ้าของ']},
+{q:'ประโยคใดเป็นการใช้คำได้เหมาะสมและถูกต้อง',c:['เขาเป็นคนที่พูดตรงไปตรงมาสมกับเป็นลูกผู้ชาย','เธอมีนิสัยขี้เกียจแต่ขยันทำงานมาก','ฉันซื้อรองเท้าใหม่ที่เก่ามาก','พ่อแม่ของเขาอายุเด็กกว่าฉัน']},
+{q:'ข้อใดเป็นคำที่มีความหมายตรงกันข้ามกับคำว่า “รัก”',c:['เกลียด','ชอบ','ห่วงใย','สนใจ']},
+{q:'คำในข้อใดเป็นคำซ้ำ',c:['วิ่งเล่น','นุ่มนวล','เบาๆ','ดำดิ่ง']},
+{q:'ข้อใดเป็นคำที่มีความหมายเหมือนกับคำว่า “สงบ”',c:['วุ่นวาย','เงียบ','เร่งรีบ','กระตือรือร้น']},
+{q:'ประโยคใดใช้สำนวนไทยได้ถูกต้อง',c:['เธอเป็นคนใจดีเหมือนแมวเชื่อง','เขามือไวใจเร็วเป็นลิงตกต้นไม้','เขาเป็นคนใจร้อนเหมือนหมากัดกัน','เขาเป็นคนมือเติบ ใช้จ่ายฟุ่มเฟือย']},
+{q:'ข้อใดเป็นคำเชื่อมที่ใช้แสดงเหตุและผล',c:['และ','แต่','เพราะ','หรือ']},
+{q:'ข้อใดเป็นการใช้คำฟุ่มเฟือย',c:['ฉันเดินไปยังร้านค้าเพื่อซื้อของ','ฉันขึ้นไปข้างบนบ้าน','เขาเดินเข้าไปในห้องเรียน','ฉันอ่านหนังสืออยู่ที่ห้องสมุด']},
+{q:'ข้อใดเป็นประโยคที่สมบูรณ์และชัดเจนที่สุด',c:['นักเรียนอ่านหนังสือเพื่อ','นักเรียนอ่านหนังสือทุกวันเพื่อเพิ่มพูนความรู้','นักเรียนอ่านหนังสือเยอะ','นักเรียนอ่านหนังสือและเรียน']},
+{q:'ข้อใดเป็นคำพ้องรูป',c:['ข้าว – ข่าว','จิต – จิตร','บิน – ปิ่น','พัด – แพทย์']},
+{q:'คำว่า “ใจดี” และ “ใจร้าย” มีความสัมพันธ์กันแบบใด',c:['คำพ้องเสียง','คำพ้องรูป','คำตรงข้าม','คำซ้อน']},
+{q:'การอ่านจับใจความสำคัญของบทความควรคำนึงถึงสิ่งใดเป็นหลัก',c:['อ่านเฉพาะย่อหน้าแรก','อ่านแค่ประโยคสุดท้ายของแต่ละย่อหน้า','อ่านโดยพิจารณาหัวข้อเรื่องและรายละเอียดสำคัญ','อ่านผ่านๆ เพื่อให้เข้าใจคร่าวๆ']}
 ];
-const LETTERS=["ก","ข","ค","ง"];let order=[],current=0,answers={};
-function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}function show(el,yes=true){el.style.display=yes?"block":"none"}function updateProgress(){const n=Object.keys(answers).length;document.getElementById('answered').textContent=`ตอบแล้ว ${n}/40`;document.getElementById('bar').style.width=`${n/40*100}%`}function render(){const item=order[current];document.getElementById('counter').textContent=`ข้อ ${current+1}/40`;document.getElementById('questionText').textContent=`${current+1}. ${item.q}`;const c=document.getElementById('choices');c.innerHTML='';item.c.forEach((txt,i)=>{const label=document.createElement('label');label.className='option'+(answers[item.id]===i?' selected':'');label.innerHTML=`<input type="radio" name="choice" value="${i}" ${answers[item.id]===i?'checked':''}><span class="letter">${LETTERS[i]}.</span><span>${txt}</span>`;label.querySelector('input').addEventListener('change',()=>{answers[item.id]=i;render();updateProgress()});c.appendChild(label)});document.getElementById('prevBtn').disabled=current===0;document.getElementById('nextBtn').style.display=current===39?'none':'inline-block';document.getElementById('submitBtn').style.display=current===39?'inline-block':'none';updateProgress()}
-function renderReview(){const list=document.getElementById('reviewList');list.innerHTML='';order.forEach((item,i)=>{const selectedIndex=answers[item.id];const correctIndex=CLIENT_KEY[item.id];const isCorrect=selectedIndex===correctIndex;const box=document.createElement('div');box.className='review-item';const choices=item.c.map((txt,j)=>{let cls='review-choice';let suffix='';if(j===correctIndex){cls+=' correct';suffix=isCorrect&&j===selectedIndex?' ✓ คำตอบของคุณและเฉลยที่ถูกต้อง':' ✓ เฉลยที่ถูกต้อง'}if(j===selectedIndex&&!isCorrect){cls+=' wrong';suffix=' ✗ คำตอบของคุณ'}return `<div class="${cls}">${LETTERS[j]}. ${txt}${suffix}</div>`}).join('');box.innerHTML=`<div class="review-q">${i+1}. ${item.q}</div>${choices}<span class="review-badge ${isCorrect?'ok':'bad'}">${isCorrect?'✓ ตอบถูก':'✗ ตอบผิด'}</span>`;list.appendChild(box)})}
-document.getElementById('startBtn').addEventListener('click',()=>{const name=document.getElementById('fullname').value.trim();if(!name){alert('กรุณากรอกชื่อ-สกุลก่อนเริ่มทำข้อสอบ');return}order=shuffle(QUESTIONS);current=0;answers={};show(document.getElementById('startCard'),false);show(document.getElementById('exam'),true);render();window.scrollTo({top:0,behavior:'smooth'})});document.getElementById('prevBtn').addEventListener('click',()=>{if(current>0){current--;render()}});document.getElementById('nextBtn').addEventListener('click',()=>{if(current<39){current++;render()}});document.getElementById('submitBtn').addEventListener('click',()=>{if(Object.keys(answers).length<40){const missing=order.findIndex(q=>answers[q.id]===undefined);alert('ยังตอบไม่ครบ 40 ข้อ ระบบจะพาไปยังข้อที่ยังไม่ได้ตอบ');if(missing>=0){current=missing;render()}return}submitOfficial()});
-function submitOfficial(){const btn=document.getElementById('submitBtn'),status=document.getElementById('status');btn.disabled=true;status.style.display='block';status.textContent='กำลังส่งคำตอบให้ Google Apps Script ตรวจและบันทึกลง Google Sheets...';const callback='quizResult_'+Date.now()+'_'+Math.floor(Math.random()*100000);const attemptId=(crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random().toString(36).slice(2));const compact=Object.entries(answers).map(([id,v])=>`${id}:${v}`).join(',');const script=document.createElement('script');let done=false;const cleanup=()=>{try{delete window[callback]}catch(e){}script.remove()};const timer=setTimeout(()=>{if(done)return;done=true;cleanup();btn.disabled=false;status.textContent='ไม่สามารถติดต่อระบบตรวจคะแนนได้ โปรดตรวจการเชื่อมต่อ Google Apps Script'},15000);window[callback]=(res)=>{if(done)return;done=true;clearTimeout(timer);cleanup();btn.disabled=false;if(!res||!res.ok){status.textContent='ตรวจคะแนนไม่สำเร็จ: '+((res&&res.error)||'ไม่ทราบสาเหตุ');return}show(document.getElementById('exam'),false);show(document.getElementById('result'),true);document.getElementById('resultName').textContent=document.getElementById('fullname').value.trim();document.getElementById('totalScore').textContent=`${res.totalScore}/40`;document.getElementById('memoryScore').textContent=`${res.memoryScore}/20`;document.getElementById('analysisScore').textContent=`${res.analysisScore}/20`;document.getElementById('easyScore').textContent=`${res.easyScore}/12`;document.getElementById('mediumScore').textContent=`${res.mediumScore}/16`;document.getElementById('hardScore').textContent=`${res.hardScore}/12`;document.getElementById('percentScore').textContent=`${Math.round(res.totalScore/40*100)}%`;renderReview();window.scrollTo({top:0,behavior:'smooth'})};script.onerror=()=>{if(done)return;done=true;clearTimeout(timer);cleanup();btn.disabled=false;status.textContent='ระบบตรวจคะแนนยังไม่ตอบกลับ กรุณาลองใหม่อีกครั้ง'};const p=new URLSearchParams({action:'submit',callback,fullname:document.getElementById('fullname').value.trim(),answers:compact,attemptId});script.src=APPS_SCRIPT_URL+'?'+p.toString();document.body.appendChild(script)}
+
+const PAIRS=[['M01','M02'],['M03','M04'],['M05','M06'],['M07','M08'],['M09','M10'],['M11','M12'],['M13','M14'],['M15','M16'],['M17','M18'],['M19','M20'],['A01','A02'],['A03','A04'],['A05','A06'],['A07','A08'],['A09','A10'],['A11','A12'],['A13','A14'],['A15','A16'],['A17','A18'],['A19','A20']];
+const ENCODE=[
+[[0,1],[2,2],[3,0],[0,1]],
+[[1,3],[2,2],[0,1],[1,3]],
+[[3,0],[0,1],[2,2],[3,0]],
+[[0,2],[1,3],[2,0],[3,1]],
+[[0,1],[1,0],[2,2],[3,3]],
+[[1,2],[0,1],[2,3],[3,0]],
+[[0,2],[3,1],[1,3],[2,0]],
+[[1,2],[1,2],[3,0],[0,1]],
+[[3,0],[2,2],[0,1],[1,3]],
+[[2,1],[0,2],[1,3],[3,0]],
+[[2,2],[0,1],[1,3],[3,0]],
+[[1,2],[0,1],[2,3],[3,0]],
+[[2,3],[1,1],[0,2],[3,0]],
+[[2,3],[0,1],[1,2],[2,3]],
+[[0,2],[1,3],[1,1],[3,0]],
+[[1,0],[0,1],[2,3],[3,2]],
+[[0,2],[1,1],[2,3],[3,0]],
+[[2,3],[1,1],[0,2],[3,0]],
+[[0,2],[2,3],[1,1],[3,0]],
+[[0,2],[2,3],[1,1],[3,0]]
+];
+
+let current=0;
+const answers=Array(QUESTIONS.length).fill(null);
+const $=id=>document.getElementById(id);
+
+function render(){
+  const q=QUESTIONS[current];
+  $('counter').textContent=`ข้อ ${current+1}/${QUESTIONS.length}`;
+  $('answered').textContent=`ตอบแล้ว ${answers.filter(v=>v!==null).length}/${QUESTIONS.length}`;
+  $('bar').style.width=`${((current+1)/QUESTIONS.length)*100}%`;
+  $('questionText').textContent=`${current+1}. ${q.q}`;
+  $('choices').innerHTML=q.c.map((text,i)=>`<label class="option ${answers[current]===i?'selected':''}"><input type="radio" name="choice" value="${i}" ${answers[current]===i?'checked':''}><span class="letter">${LETTERS[i]}.</span><span>${escapeHtml(text)}</span></label>`).join('');
+  document.querySelectorAll('input[name="choice"]').forEach(el=>el.addEventListener('change',e=>{answers[current]=Number(e.target.value);render();}));
+  $('prevBtn').disabled=current===0;
+  $('nextBtn').style.display=current===QUESTIONS.length-1?'none':'inline-block';
+  $('submitBtn').style.display=current===QUESTIONS.length-1?'inline-block':'none';
+}
+
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+
+$('startBtn').addEventListener('click',()=>{
+  const name=$('fullname').value.trim();
+  if(!name){alert('กรุณากรอกชื่อ-สกุล');$('fullname').focus();return;}
+  $('startCard').style.display='none';$('exam').style.display='block';render();window.scrollTo({top:0,behavior:'smooth'});
+});
+$('prevBtn').addEventListener('click',()=>{if(current>0){current--;render();}});
+$('nextBtn').addEventListener('click',()=>{if(current<QUESTIONS.length-1){current++;render();}});
+$('submitBtn').addEventListener('click',submitExam);
+
+function buildBackendAnswers(){
+  const out={};
+  answers.forEach((choice,qi)=>{
+    const pair=PAIRS[qi];
+    const vals=ENCODE[qi][choice];
+    out[pair[0]]=vals[0]; out[pair[1]]=vals[1];
+  });
+  return out;
+}
+function compactAnswers(obj){return Object.entries(obj).map(([k,v])=>`${k}:${v}`).join(',');}
+function jsonp(url,params){
+  return new Promise((resolve,reject)=>{
+    const cb='quizcb_'+Date.now()+'_'+Math.random().toString(36).slice(2);
+    const script=document.createElement('script');
+    const timer=setTimeout(()=>cleanup(new Error('การเชื่อมต่อใช้เวลานานเกินไป กรุณาลองใหม่')),15000);
+    function cleanup(err,data){clearTimeout(timer);try{delete window[cb]}catch(_){window[cb]=undefined}script.remove();err?reject(err):resolve(data);}
+    window[cb]=data=>cleanup(null,data);
+    const qs=new URLSearchParams({...params,callback:cb}).toString();
+    script.src=url+(url.includes('?')?'&':'?')+qs;
+    script.onerror=()=>cleanup(new Error('ไม่สามารถเชื่อมต่อ Apps Script ได้'));
+    document.body.appendChild(script);
+  });
+}
+async function submitExam(){
+  const missing=answers.map((v,i)=>v===null?i+1:null).filter(Boolean);
+  if(missing.length){$('status').style.display='block';$('status').textContent=`กรุณาตอบให้ครบทุกข้อ ยังไม่ได้ตอบข้อ: ${missing.join(', ')}`;return;}
+  $('status').style.display='block';$('status').textContent='กำลังส่งคำตอบเพื่อตรวจคะแนน...';$('submitBtn').disabled=true;
+  const backendAnswers=buildBackendAnswers();
+  const attemptId=`THAI20_${Date.now()}_ANS_${answers.map(v=>LETTERS[v]).join('')}`;
+  try{
+    const res=await jsonp(APPS_SCRIPT_URL,{action:'submit',fullname:$('fullname').value.trim(),answers:compactAnswers(backendAnswers),attemptId});
+    if(!res||!res.ok)throw new Error((res&&res.error)||'ไม่สามารถตรวจคะแนนได้');
+    showResult(res);
+  }catch(err){$('status').textContent='เกิดข้อผิดพลาด: '+err.message;$('submitBtn').disabled=false;}
+}
+function showResult(res){
+  const points=Number(res.totalScore||0);
+  const correct=Math.round(points/2);
+  const percent=Math.round((points/40)*10000)/100;
+  $('exam').style.display='none';$('result').style.display='block';
+  $('resultName').textContent='ผู้เข้าสอบ: '+$('fullname').value.trim();
+  $('totalScore').textContent=`${points}/40`;
+  $('correctCount').textContent=`${correct}/20`;
+  $('score40').textContent=`${points}/40`;
+  $('percentScore').textContent=`${percent}%`;
+  $('reviewList').innerHTML=QUESTIONS.map((q,qi)=>{
+    const pair=PAIRS[qi];
+    const ok=!!(res.review&&res.review[pair[0]]&&res.review[pair[1]]&&res.review[pair[0]].isCorrect&&res.review[pair[1]].isCorrect);
+    const selected=answers[qi];
+    return `<div class="review-item"><div class="review-q">${qi+1}. ${escapeHtml(q.q)}</div>${q.c.map((t,i)=>`<div class="review-choice ${i===selected?(ok?'selected-ok':'selected-bad'):''}">${LETTERS[i]}. ${escapeHtml(t)}${i===selected?' ← คำตอบของคุณ':''}</div>`).join('')}<span class="review-badge ${ok?'ok':'bad'}">${ok?'✓ ถูก (+2 คะแนน)':'✗ ผิด (0 คะแนน)'}</span></div>`;
+  }).join('');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 </script>
-</body></html>
+</body>
+</html>
