@@ -68,8 +68,13 @@ function gradeAndSave_(data) {
   let totalScore = 0, memoryScore = 0, analysisScore = 0;
   let easyScore = 0, mediumScore = 0, hardScore = 0;
 
+  const review = {};
   ids.forEach(id => {
-    const correct = Number(submitted[id]) === KEY[id];
+    const selectedIndex = Number(submitted[id]);
+    const correctIndex = KEY[id];
+    const correct = selectedIndex === correctIndex;
+    review[id] = {selectedIndex, correctIndex, isCorrect: correct};
+
     if (!correct) return;
     totalScore++;
     if (id.startsWith('M')) memoryScore++; else analysisScore++;
@@ -93,7 +98,6 @@ function gradeAndSave_(data) {
     sh.appendRow(headers);
     sh.setFrozenRows(1);
   } else {
-    // รองรับชีตเก่าที่หัวตารางไม่ตรงกับระบบใหม่ โดยสร้างชีตใหม่ให้อัตโนมัติ
     const current = sh.getRange(1,1,1,Math.max(sh.getLastColumn(),1)).getValues()[0];
     if (current[0] && String(current[1] || '') !== 'ชื่อ-สกุล') {
       sh = ss.insertSheet('ผลสอบ_40ข้อ_' + Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyyMMdd_HHmmss'));
@@ -113,7 +117,11 @@ function gradeAndSave_(data) {
     data.attemptId || '', ...rowAnswers
   ]);
 
-  return {ok:true,totalScore,memoryScore,analysisScore,easyScore,mediumScore,hardScore};
+  return {
+    ok:true,
+    totalScore,memoryScore,analysisScore,easyScore,mediumScore,hardScore,
+    review
+  };
 }
 
 function parseAnswers_(raw) {
